@@ -11,7 +11,7 @@ namespace SmartBazar.Models.Repository
     {
         void InsertCategory(Category category);
         void EditCategory(Category category);
-        void ViewCategory();
-        void GetCategoryById(int id);
+        List<Category> ViewCategory();
+        Category GetCategoryById(int id);
     }
 }
