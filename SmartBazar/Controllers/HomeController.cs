@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SmartBazar.Models.Repository;
+using SmartBazar.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,21 +12,13 @@ namespace SmartBazar.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            CategoryRepository _categoryRepository = new CategoryRepository();
+            List<Category> categories= _categoryRepository.ViewCategory();
+            ViewBag.categoryList = categories;
 
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+      
     }
 }
