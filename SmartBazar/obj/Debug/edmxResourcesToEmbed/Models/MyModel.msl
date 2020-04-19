@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartBazarModelStoreContainer" CdmEntityContainer="SmartBazarEntities">
+    <EntitySetMapping Name="tbl_Admin">
+      <EntityTypeMapping TypeName="SmartBazarModel.tbl_Admin">
+        <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="ad_id" ColumnName="ad_id" />
+          <ScalarProperty Name="ad_username" ColumnName="ad_username" />
+          <ScalarProperty Name="ad_password" ColumnName="ad_password" />
+          <ScalarProperty Name="ad_createdOn" ColumnName="ad_createdOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Category">
+      <EntityTypeMapping TypeName="SmartBazarModel.tbl_Category">
+        <MappingFragment StoreEntitySet="tbl_Category">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="cat_createdOn" ColumnName="cat_createdOn" />
+          <ScalarProperty Name="cat_color" ColumnName="cat_color" />
+          <ScalarProperty Name="cat_icon" ColumnName="cat_icon" />
+          <ScalarProperty Name="cat_fk_Ad_id" ColumnName="cat_fk_Ad_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Order">
+      <EntityTypeMapping TypeName="SmartBazarModel.tbl_Order">
+        <MappingFragment StoreEntitySet="tbl_Order">
+          <ScalarProperty Name="o_id" ColumnName="o_id" />
+          <ScalarProperty Name="o_username" ColumnName="o_username" />
+          <ScalarProperty Name="o_phoneNo" ColumnName="o_phoneNo" />
+          <ScalarProperty Name="o_email" ColumnName="o_email" />
+          <ScalarProperty Name="o_createdOn" ColumnName="o_createdOn" />
+          <ScalarProperty Name="o_approved" ColumnName="o_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Product">
+      <EntityTypeMapping TypeName="SmartBazarModel.tbl_Product">
+        <MappingFragment StoreEntitySet="tbl_Product">
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <ScalarProperty Name="pro_image1" ColumnName="pro_image1" />
+          <ScalarProperty Name="pro_image2" ColumnName="pro_image2" />
+          <ScalarProperty Name="pro_image3" ColumnName="pro_image3" />
+          <ScalarProperty Name="pro_des" ColumnName="pro_des" />
+          <ScalarProperty Name="pro_price" ColumnName="pro_price" />
+          <ScalarProperty Name="pro_fk_Cat_id" ColumnName="pro_fk_Cat_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProductsOrdered">
+      <EntityTypeMapping TypeName="SmartBazarModel.tbl_ProductsOrdered">
+        <MappingFragment StoreEntitySet="tbl_ProductsOrdered">
+          <ScalarProperty Name="op_id" ColumnName="op_id" />
+          <ScalarProperty Name="op_fk_Pro_id" ColumnName="op_fk_Pro_id" />
+          <ScalarProperty Name="op_qty" ColumnName="op_qty" />
+          <ScalarProperty Name="op_unitPrice" ColumnName="op_unitPrice" />
+          <ScalarProperty Name="op_total" ColumnName="op_total" />
+          <ScalarProperty Name="op_fk_O_id" ColumnName="op_fk_O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
