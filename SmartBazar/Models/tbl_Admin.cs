@@ -24,6 +24,7 @@ namespace SmartBazar.Models
         public string ad_username { get; set; }
         public string ad_password { get; set; }
         public Nullable<System.DateTime> ad_createdOn { get; set; }
+        public string ad_email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Category> tbl_Category { get; set; }

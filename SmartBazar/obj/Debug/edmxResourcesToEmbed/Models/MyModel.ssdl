@@ -8,6 +8,7 @@
     <Property Name="ad_username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ad_password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ad_createdOn" Type="datetime" />
+    <Property Name="ad_email" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tbl_Category">
     <Key>

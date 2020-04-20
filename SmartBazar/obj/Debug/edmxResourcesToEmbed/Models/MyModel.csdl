@@ -9,6 +9,7 @@
     <Property Name="ad_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ad_createdOn" Type="DateTime" Precision="3" />
     <NavigationProperty Name="tbl_Category" Relationship="Self.FK__tbl_Categ__cat_f__145C0A3F" FromRole="tbl_Admin" ToRole="tbl_Category" />
+    <Property Name="ad_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tbl_Category">
     <Key>

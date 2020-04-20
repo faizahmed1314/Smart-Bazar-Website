@@ -4,6 +4,7 @@
     <EntitySetMapping Name="tbl_Admin">
       <EntityTypeMapping TypeName="SmartBazarModel.tbl_Admin">
         <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="ad_email" ColumnName="ad_email" />
           <ScalarProperty Name="ad_id" ColumnName="ad_id" />
           <ScalarProperty Name="ad_username" ColumnName="ad_username" />
           <ScalarProperty Name="ad_password" ColumnName="ad_password" />
