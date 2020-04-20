@@ -147,7 +147,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\AdminRepository.cs" />
     <Compile Include="Models\Repository\CategoryRepository.cs" />
+    <Compile Include="Models\Repository\IAdmin.cs" />
     <Compile Include="Models\Repository\ICategory.cs" />
     <Compile Include="Models\Repository\IProduct.cs" />
     <Compile Include="Models\Repository\ProductRepository.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Models\tbl_ProductsOrdered.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\Admin.cs" />
     <Compile Include="Models\ViewModels\Category.cs" />
     <Compile Include="Models\ViewModels\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -304,6 +307,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ProjectScripts\Admin\signupScript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -317,6 +321,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\AdminSignUp.cshtml" />
+    <Content Include="Views\Home\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
