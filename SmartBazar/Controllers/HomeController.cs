@@ -27,6 +27,8 @@ namespace SmartBazar.Controllers
             ViewBag.productList = products;
             return View();
         }
+
+      
         public ActionResult AdminSignUp()
         {
             return View();
