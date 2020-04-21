@@ -1017,7 +1017,7 @@
                     foreach (var item in ViewBag.categoryList as List<SmartBazar.Models.ViewModels.Category>)
                     {
                         <div class="col-md-3 focus-grid">
-                            <a href="@Url.Action("Product",new { id=item.cat_id})" class="wthree-btn" style="color:@item.cat_color">
+                            <a href="@Url.Action("Product","Product",new { id=item.cat_id})" class="wthree-btn" style="color:@item.cat_color">
                                 <div class="focus-image"><i class="@item.cat_icon"></i></div>
                                 <h4 class="clrchg">@item.cat_name</h4>
                             </a>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "CreateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Create Category -->
+<div class="login-page">
+    <div class="container">
+        <h3 class="w3ls-title w3ls-title1">Create Category</h3>
+        <div class="login-body">
+            
+            @using (Html.BeginForm("CreateCategory", "Home", FormMethod.Post))
+            {
+                <input type="text" class="user" name="cat_name" placeholder="Enter Category Name" required="">
+                <input type="text" class="user" name="cat_color" placeholder="Enter Color" required="">
+                <input type="text" class="user" name="cat_icon" placeholder="Enter Icon" required="">
+               
+                <span>@ViewBag.ErrorMessege</span>
+
+                <input type="submit" value="Create ">
+               
+            }
+
+        </div>
+        <h6>Back to login page! <a href="AdminLogin">Login Now »</a> </h6>
+    </div>
+</div>
+<!-- //Create Category -->

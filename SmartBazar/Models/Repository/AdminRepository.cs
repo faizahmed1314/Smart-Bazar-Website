@@ -10,9 +10,9 @@ namespace SmartBazar.Models.Repository
     {
         SmartBazarEntities _db = new SmartBazarEntities();
 
-        public void InsertAdmin(Admin admin)
+        public bool InsertAdmin(Admin admin)
         {
-
+            bool isAdded = false;
             tbl_Admin p = new tbl_Admin();
             p.ad_id = admin.ad_id;
             p.ad_username = admin.ad_username;
@@ -20,14 +20,24 @@ namespace SmartBazar.Models.Repository
             p.ad_password = admin.ad_password;
             p.ad_email = admin.ad_email;
             
+            
 
             _db.tbl_Admin.Add(p);
-            _db.SaveChanges();
+            int rowAffected=_db.SaveChanges();
+            if (rowAffected > 0)
+            {
+                isAdded = true;
+            }
+            return isAdded;
         }
 
-        public void AdminLogin(Admin admin)
+        public tbl_Admin AdminLogin(Admin admin)
         {
-            tbl_Admin p = _db.tbl_Admin.Where(x => x.ad_email == admin.ad_email && x.ad_password == admin.ad_password).SingleOrDefault();
+            
+            tbl_Admin person = _db.tbl_Admin.Where(x => x.ad_username == admin.ad_username && x.ad_password == admin.ad_password).SingleOrDefault();
+
+            return person;
+            
         }
     }
 }

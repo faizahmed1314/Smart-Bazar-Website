@@ -9,7 +9,7 @@ namespace SmartBazar.Models.Repository
 {
     interface ICategory
     {
-        void InsertCategory(Category category);
+        bool InsertCategory(Category category);
         void EditCategory(Category category);
         List<Category> ViewCategory();
         Category GetCategoryById(int id);

@@ -9,6 +9,6 @@ namespace SmartBazar.Models.Repository
 {
     interface IAdmin
     {
-        void InsertAdmin(Admin admin);
+        bool InsertAdmin(Admin admin);
     }
 }

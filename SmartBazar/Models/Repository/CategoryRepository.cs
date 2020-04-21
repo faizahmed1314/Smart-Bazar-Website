@@ -40,18 +40,24 @@ namespace SmartBazar.Models.Repository
            
         }
 
-        public void InsertCategory(Category item)
+        public bool InsertCategory(Category category)
         {
+            bool isAdded = false;
             tbl_Category c = new tbl_Category();
-            c.cat_id = item.cat_id;
-            c.cat_name = item.cat_name;
+            c.cat_id = category.cat_id;
+            c.cat_name = category.cat_name;
             c.cat_createdOn = DateTime.Now;
-            c.cat_icon = item.cat_icon;
-            c.cat_color = item.cat_color;
-            c.cat_fk_Ad_id = item.cat_fk_Ad_id;
+            c.cat_icon = category.cat_icon;
+            c.cat_color = category.cat_color;
+            c.cat_fk_Ad_id = category.cat_fk_Ad_id;
 
             _db.tbl_Category.Add(c);
-            _db.SaveChanges();
+            int rowAffected=_db.SaveChanges();
+            if (rowAffected > 0)
+            {
+                isAdded = true;
+            }
+            return isAdded;
         }
 
         public List<Category> ViewCategory()

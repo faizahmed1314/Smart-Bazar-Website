@@ -13,22 +13,42 @@ namespace SmartBazar.Controllers
         public ActionResult Index()
         {
             CategoryRepository _categoryRepository = new CategoryRepository();
-            List<Category> categories= _categoryRepository.ViewCategory();
+            List<Category> categories = _categoryRepository.ViewCategory();
             ViewBag.categoryList = categories;
 
             return View();
         }
 
-        public ActionResult Product(int? id)
+        public ActionResult CreateCategory()
         {
-            ProductRepository _productRepository = new ProductRepository();
-
-            List<Product> products = _productRepository.ViewProduct().Where(x => x.pro_fk_Cat_id == id).ToList();
-            ViewBag.productList = products;
+            if (Session["ad_id"] == null)
+            {
+                return RedirectToAction("AdminLogin");
+            }
             return View();
         }
 
-      
+        [HttpPost]
+        public ActionResult CreateCategory(Category category)
+        {
+            category.cat_fk_Ad_id = Convert.ToInt32(Session["ad_id"].ToString());
+
+            CategoryRepository _categoryRepository = new CategoryRepository();
+            bool isAdded=_categoryRepository.InsertCategory(category);
+            if (isAdded)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+            ViewBag.ErrorMessage = "Create category unsuccessfull!";
+            return View();
+        }
+
+
+
+
         public ActionResult AdminSignUp()
         {
             return View();
@@ -39,11 +59,15 @@ namespace SmartBazar.Controllers
             if (ModelState.IsValid)
             {
                 AdminRepository _adminRepository = new AdminRepository();
-                _adminRepository.InsertAdmin(admin);
-                return RedirectToAction("index");
+                bool isAdded=_adminRepository.InsertAdmin(admin);
+                if (isAdded)
+                {
+                    return RedirectToAction("index");
+                }
+                
             }
-            
-            
+
+
             return View(admin);
         }
 
@@ -54,15 +78,24 @@ namespace SmartBazar.Controllers
         [HttpPost]
         public ActionResult AdminLogin(Admin admin)
         {
-            if(admin.ad_email !=null && admin.ad_password != null)
+            if (admin.ad_username != null && admin.ad_password != null)
             {
                 AdminRepository _adminRepository = new AdminRepository();
-                _adminRepository.AdminLogin(admin);
+                var person = _adminRepository.AdminLogin(admin);
+                if (person != null)
+                {
+                    Session["ad_id"] = person.ad_id.ToString();
+                    Session["ad_username"] = person.ad_username.ToString();
+                    return RedirectToAction("CreateCategory");
+                }
 
-                return RedirectToAction("index");
+
+
+
+
             }
             return View();
-            
+
         }
 
 
