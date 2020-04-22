@@ -52,7 +52,7 @@
                     <div class="col-md-3 product-grids">
                         <div class="agile-products">
                             <div class="new-tag"><h6>20%<br>Off</h6></div>
-                            <a href="single.html"><img src="@Url.Content(item.pro_image1)" class="img-responsive" alt="img"></a>
+                            <a href="@Url.Action("ProductDetails","Product",new { id=item.pro_id})"><img src="@Url.Content(item.pro_image1)" class="img-responsive" alt="img"></a>
                             <div class="agile-product-text">
                                 <h5><a href="single.html">@item.pro_name</a></h5>
                                 <h6><del>@item.pro_price+200</del> @item.pro_price</h6>
@@ -190,7 +190,7 @@
                 <div class="related-row">
                     <h4>YOU MAY ALSO LIKE</h4>
                     <div class="galry-like">
-                        <a href="single.html"><img src="images/e1.png" class="img-responsive" alt="img"></a>
+                        <a href="single.html"><img src="~/Content/images/e1.png" class="img-responsive" alt="img"></a>
                         <h4><a href="products.html">Audio speaker</a></h4>
                         <h5>$100</h5>
                     </div>

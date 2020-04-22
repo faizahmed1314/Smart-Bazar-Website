@@ -24,7 +24,7 @@ namespace SmartBazar.Controllers
 
         public ActionResult Product(int? id)
         {
-            ProductRepository _productRepository = new ProductRepository();
+            
 
             List<Product> products = _productRepository.ViewProduct().Where(x => x.pro_fk_Cat_id == id).ToList();
             ViewBag.productList = products;
@@ -56,6 +56,21 @@ namespace SmartBazar.Controllers
                
             }
             
+            return View();
+        }
+
+        public ActionResult ProductDetails(int? id)
+        {
+            if (id == null)
+            {
+                ViewData["msg"] = "Product not found!";
+            }
+            else
+            {
+           
+                Product p = _productRepository.GetProductById((int)id);
+                return View(p);
+            }
             return View();
         }
 
